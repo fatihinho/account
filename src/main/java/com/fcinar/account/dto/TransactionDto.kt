@@ -9,5 +9,4 @@ data class TransactionDto(
     val transactionType: TransactionType,
     val amount: BigDecimal?,
     val transactionDate: LocalDateTime,
-    val account: AccountDto
 )
