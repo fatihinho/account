@@ -14,15 +14,15 @@ data class Account(
     val balance: BigDecimal? = BigDecimal.ZERO,
     val creationDate: LocalDateTime,
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
+    @ManyToOne(fetch = FetchType.LAZY, cascade = [CascadeType.ALL], optional = false)
     @JoinColumn(name = "customer_id", nullable = false)
-    val customer: Customer?,
+    val customer: Customer,
 
-    @OneToMany(mappedBy = "account", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "account", fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
     val transactions: Set<Transaction> = HashSet()
 ) {
     constructor(customer: Customer, balance: BigDecimal, creationDate: LocalDateTime) : this(
-        "",
+        id = null,
         customer = customer,
         balance = balance,
         creationDate = creationDate
@@ -46,7 +46,7 @@ data class Account(
         var result = id?.hashCode() ?: 0
         result = 31 * result + (balance?.hashCode() ?: 0)
         result = 31 * result + creationDate.hashCode()
-        result = 31 * result + (customer?.hashCode() ?: 0)
+        result = 31 * result + (customer.hashCode() ?: 0)
         return result
     }
 }
