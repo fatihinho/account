@@ -15,6 +15,13 @@ data class Customer(
     @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
     val accounts: Set<Account>?
 ) {
+    constructor(id: String, name: String, surname: String) : this(
+        id = id,
+        name = name,
+        surname = surname,
+        accounts = HashSet()
+    )
+
     constructor(name: String, surname: String) : this(
         id = null,
         name = name,
