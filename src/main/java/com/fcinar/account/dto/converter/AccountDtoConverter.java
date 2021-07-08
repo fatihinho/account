@@ -22,7 +22,7 @@ public class AccountDtoConverter {
         return new AccountDto(from.getId(),
                 from.getBalance(),
                 from.getCreationDate(),
-                customerDtoConverter.convert(Objects.requireNonNull(from.getCustomer())),
+                customerDtoConverter.convertToAccountCustomerDto(Objects.requireNonNull(from.getCustomer())),
                 Objects.requireNonNull(from.getTransactions()).stream().map(transactionDtoConverter::convert).collect(Collectors.toSet()));
     }
 }
