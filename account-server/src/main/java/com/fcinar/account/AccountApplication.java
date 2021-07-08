@@ -22,6 +22,10 @@ public class AccountApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         Customer customer = customerRepository.save(new Customer("Fatih", "Çınar"));
+        Customer customer2 = customerRepository.save(new Customer("Ali", "Veli"));
+        Customer customer3 = customerRepository.save(new Customer("Ayşe", "Fatma"));
         System.out.println(customer);
+        System.out.println(customer2);
+        System.out.println(customer3);
     }
 }

@@ -44,9 +44,9 @@ data class Transaction(
 
     override fun hashCode(): Int {
         var result = id?.hashCode() ?: 0
-        result = 31 * result + (transactionType?.hashCode() ?: 0)
+        result = 31 * result + transactionType.hashCode()
         result = 31 * result + (amount?.hashCode() ?: 0)
-        result = 31 * result + (transactionDate?.hashCode() ?: 0)
+        result = 31 * result + transactionDate.hashCode()
         return result
     }
 }

@@ -1,12 +1,12 @@
 package com.fcinar.account.dto.converter;
 
 import com.fcinar.account.dto.AccountCustomerDto;
-import com.fcinar.account.dto.CustomerAccountDto;
 import com.fcinar.account.dto.CustomerDto;
 import com.fcinar.account.model.Customer;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
