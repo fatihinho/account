@@ -46,7 +46,7 @@ data class Account(
         var result = id?.hashCode() ?: 0
         result = 31 * result + (balance?.hashCode() ?: 0)
         result = 31 * result + creationDate.hashCode()
-        result = 31 * result + (customer.hashCode() ?: 0)
+        result = 31 * result + customer.hashCode()
         return result
     }
 }
