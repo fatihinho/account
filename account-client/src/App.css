@@ -1,0 +1,19 @@
+.customer {
+  margin: 24px;
+  text-align: center;
+}
+
+
+.customer-list {
+  margin: 24px;
+  text-align: center;
+}
+
+.new-customer-form {
+  display: flex;
+  justify-content: center;
+}
+
+.float-right {
+  float: right;
+}

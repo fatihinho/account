@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Container, Button } from "reactstrap";
 
 
-export default class Home extends Component {
+export default class HomePage extends Component {
     render() {
         return (
             <div>

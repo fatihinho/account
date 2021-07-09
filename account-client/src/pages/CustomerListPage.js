@@ -1,7 +1,8 @@
 import { Component } from "react";
+import { Link } from "react-router-dom";
 
 
-export default class CustomerList extends Component {
+export default class CustomerListPage extends Component {
     constructor(props) {
         super(props);
         this.state = { customers: [] };
@@ -16,13 +17,19 @@ export default class CustomerList extends Component {
     render() {
         const { customers } = this.state;
         return (
-            <div className="App">
+            <div className="customer-list">
                 <h2>Customers</h2>
                 {customers.map(customer =>
                     <div key={customer.id}>
-                        {customer.name} {customer.surname}
+                        <Link to={{
+                            state: {
+                                id: customer.id
+                            },
+                            pathname: '/customers/' + customer.id
+                        }}>{customer.name} {customer.surname}</Link>
                     </div>
-                )}
+                )
+                }
             </div>
         );
     }

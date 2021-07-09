@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Navbar, NavbarBrand } from 'reactstrap';
+import { Navbar, NavbarBrand, Button } from 'reactstrap';
 
 export default class AppNavbar extends Component {
     constructor(props) {
@@ -16,8 +16,9 @@ export default class AppNavbar extends Component {
     }
 
     render() {
-        return <Navbar color="dark" dark expand="md">
-            <NavbarBrand tag={Link} to="/">Home</NavbarBrand>
+        return <Navbar style={{ padding: "16px" }} color="dark" dark expand="md">
+            <NavbarBrand tag={Link} to="/">AccountApp</NavbarBrand>
+            <Button className="float-right" color="success" tag={Link} to="/new-customer">New Customer</Button>
         </Navbar>;
     }
 }
