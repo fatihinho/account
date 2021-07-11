@@ -1,2 +1,2 @@
-# account
-Account App with Spring Boot
+# Account App
+Account App with Spring and React
