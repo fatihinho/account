@@ -1,13 +1,13 @@
 package com.fcinar.account.controller;
 
+import com.fcinar.account.dto.CreateAccountRequest;
+import com.fcinar.account.dto.CreateCustomerRequest;
 import com.fcinar.account.dto.CustomerDto;
 import com.fcinar.account.service.CustomerService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -17,6 +17,11 @@ public class CustomerController {
 
     public CustomerController(CustomerService customerService) {
         this.customerService = customerService;
+    }
+
+    @PostMapping
+    public ResponseEntity<CustomerDto> createCustomer(@Valid @RequestBody CreateCustomerRequest createCustomerRequest) {
+        return ResponseEntity.ok(customerService.createCustomer(createCustomerRequest));
     }
 
     @GetMapping("/{customerId}")
