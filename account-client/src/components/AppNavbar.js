@@ -16,9 +16,9 @@ export default class AppNavbar extends Component {
     }
 
     render() {
-        return <Navbar style={{ padding: "16px" }} color="dark" dark expand="md">
+        return <Navbar style={{ padding: "16px", justifyContent: "space-between" }} color="dark" dark expand="md">
             <NavbarBrand tag={Link} to="/">AccountApp</NavbarBrand>
-            <Button className="float-right" color="success" tag={Link} to="/new-customer">New Customer</Button>
+            <Button color="success" tag={Link} to="/new-customer">New Customer</Button>
         </Navbar>;
     }
 }

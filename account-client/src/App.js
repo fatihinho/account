@@ -7,6 +7,7 @@ import HomePage from './pages/HomePage';
 import CustomerListPage from './pages/CustomerListPage';
 import NewCustomerPage from './pages/NewCustomerPage';
 import CustomerPage from './pages/CustomerPage';
+import AddAccountPage from './pages/AddAccountPage';
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
           <Route path="/customers" exact={true} component={CustomerListPage} />
           <Route path="/customers/:id" exact={true} component={CustomerPage} />
           <Route path="/new-customer" exact={true} component={NewCustomerPage} />
+          <Route path="/add-account" exact={true} component={AddAccountPage} />
         </Switch>
       </Router>
     </div>

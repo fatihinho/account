@@ -1,4 +1,5 @@
 import { Component } from "react";
+
 import {
     InputGroup,
     InputGroupAddon,
@@ -9,48 +10,40 @@ import {
     FormGroup,
 } from "reactstrap";
 
-export default class NewCustomerPage extends Component {
+export default class AddAccountPage extends Component {
     constructor(props) {
         super(props);
-        this.state = { name: '', surname: '' }
+        this.state = { initialCredit: Number() }
 
-        this.updateNameValue = this.updateNameValue.bind(this);
-        this.updateSurnameValue = this.updateSurnameValue.bind(this);
+        this.updateInitialCreditValue = this.updateInitialCreditValue.bind(this);
         this.onHandleSubmit = this.onHandleSubmit.bind(this); // this kullanmak için bind gerekli
     }
 
-    updateNameValue(e) {
+    updateInitialCreditValue(e) {
         this.setState({
-            name: e.target.value
-        });
-    }
-
-    updateSurnameValue(e) {
-        this.setState({
-            surname: e.target.value
+            initialCredit: e.target.value
         });
     }
 
     onHandleSubmit() {
-        const name = this.state.name
-        const surname = this.state.surname;
-        if (name.length > 0 && surname.length > 0) {
-            fetch('/v1/customer', {
+        const id = this.props.location.state.id;
+        const initialCredit = this.state.initialCredit;
+        if (initialCredit > 0) {
+            fetch('/v1/account', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json, text/plain, */*',
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ name: this.state.name, surname: this.state.surname })
+                body: JSON.stringify({ customerId: id, initialCredit: initialCredit })
             })
-                .then(window.alert(`Kayıt Başarılı, Hoş Geldin ${name}!`))
+                .then(window.alert(`Hesap Başarıyla Eklendi`))
                 .then(this.props.history.push('/'))
         } else {
             window.alert("HATA: Eksik Alan Mevcut!");
         }
         this.setState({
-            name: '',
-            surname: ''
+            initialCredit: '',
         });
 
     }
@@ -63,22 +56,11 @@ export default class NewCustomerPage extends Component {
                         <FormGroup>
                             <InputGroup>
                                 <InputGroupAddon addonType="prepend">
-                                    <InputGroupText>Name</InputGroupText>
+                                    <InputGroupText>Initial Credit</InputGroupText>
                                 </InputGroupAddon>
                                 <Input
-                                    type="text"
-                                    value={this.state.name} onChange={e => this.updateNameValue(e)} />
-                            </InputGroup>
-                        </FormGroup>
-                        <br />
-                        <FormGroup>
-                            <InputGroup>
-                                <InputGroupAddon addonType="prepend">
-                                    <InputGroupText>Surname</InputGroupText>
-                                </InputGroupAddon>
-                                <Input
-                                    type="text"
-                                    value={this.state.surname} onChange={e => this.updateSurnameValue(e)} />
+                                    type="number"
+                                    value={this.state.initialCredit} onChange={e => this.updateInitialCreditValue(e)} />
                             </InputGroup>
                         </FormGroup>
                         <br />

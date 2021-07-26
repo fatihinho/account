@@ -3,7 +3,6 @@
   text-align: center;
 }
 
-
 .customer-list {
   margin: 24px;
   text-align: center;
@@ -16,4 +15,8 @@
 
 .float-right {
   float: right;
+}
+
+.accounts {
+  margin: 48px;
 }

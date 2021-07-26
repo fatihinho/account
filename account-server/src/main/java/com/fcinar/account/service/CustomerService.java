@@ -1,20 +1,14 @@
 package com.fcinar.account.service;
 
-import com.fcinar.account.dto.AccountDto;
-import com.fcinar.account.dto.CreateAccountRequest;
 import com.fcinar.account.dto.CreateCustomerRequest;
 import com.fcinar.account.dto.CustomerDto;
 import com.fcinar.account.dto.converter.CustomerDtoConverter;
 import com.fcinar.account.exception.CustomerNotFoundException;
-import com.fcinar.account.model.Account;
 import com.fcinar.account.model.Customer;
-import com.fcinar.account.model.Transaction;
 import com.fcinar.account.repository.ICustomerRepository;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 

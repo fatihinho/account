@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { Link } from "react-router-dom";
+import { Button } from "reactstrap";
 
 
 export default class CustomerListPage extends Component {
@@ -19,17 +20,17 @@ export default class CustomerListPage extends Component {
         return (
             <div className="customer-list">
                 <h2>Customers</h2>
-                {customers.map(customer =>
+                {customers.length > 0 ? customers.map(customer =>
                     <div key={customer.id}>
                         <Link to={{
                             state: {
                                 id: customer.id
                             },
                             pathname: '/customers/' + customer.id
-                        }}>{customer.name} {customer.surname}</Link>
+                        }}><Button style={{ margin: "8px" }} color="danger">{customer.name} {customer.surname}</Button></Link>
                     </div>
                 )
-                }
+                    : ""}
             </div>
         );
     }

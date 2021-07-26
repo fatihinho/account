@@ -7,8 +7,8 @@ export default class HomePage extends Component {
     render() {
         return (
             <div>
-                <Container fluid>
-                    <Button color="link"><Link to="/customers">Customers</Link></Button>
+                <Container className="customer-list" fluid>
+                    <Link to="/customers"><Button type="button" style={{ borderColor: "transparent", backgroundColor: "darkorange" }}>Customers</Button></Link>
                 </Container>
             </div>
         );
